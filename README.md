@@ -2,4 +2,4 @@
 
 AppName : Accounts
 
-Please view Accounts.index 
+Please review the View file in Accounts folder (app)
