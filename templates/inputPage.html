@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API 1</title>
+</head>
+<body>
+
+<form action="index", method="post">
+    <h1>Your App</h1>
+    <p>Please give input</p>
+      {% csrf_token %}
+    <input type="number" placeholder="Enter a number" name="num1" id="num1" required><br>
+    <button type="submit" name="sq" >sq</button>
+    <button type="submit" name="sqrt" >sqrt</button>
+    <button type="submit" name="fact" >fact</button>
+    <button type="submit" name="fibbo" >fibbo</button><br>
+    <button type="submit" name="history" >History</button>
+
+</body>
+</html>
+
+<p>Output : {{result}}</p>
+
+<p> Type &nbsp Input &nbsp Result </p>
+{% for i in data %}
+   <p> {{ i.type}} &nbsp {{i.input}} &nbsp {{i.result}}</p>
+{% endfor %}
