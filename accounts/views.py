@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from math import sqrt
-from .models import operations
+from .models import Operations
 
 
 def fact(number):
@@ -42,34 +42,34 @@ def index(request):
 
         if 'sq' in request.POST:
             result = number * number
-            MyOperations = operations(type='sq', input=number, result=result)
+            MyOperations = Operations(type='sq', input=number, result=result)
             MyOperations.save()
             return render(request, "inputPage.html", {"result": result})
 
         elif 'sqrt' in request.POST:
             result = sqrt(number)
-            MyOperations = operations(type='sqrt', input=number, result=result)
+            MyOperations = Operations(type='sqrt', input=number, result=result)
             MyOperations.save()
             return render(request, "inputPage.html", {"result": result})
 
         elif 'fact' in request.POST:
             result = fact(number)
-            MyOperations = operations(type='fact', input=number, result=result)
+            MyOperations = Operations(type='fact', input=number, result=result)
             MyOperations.save()
             return render(request, "inputPage.html", {"result": result})
 
         elif 'fibbo' in request.POST:
             result = fibbo(number)
-            MyOperations = operations(type='fibbo', input=number, result=result)
+            MyOperations = Operations(type='fibbo', input=number, result=result)
             MyOperations.save()
             return render(request, "inputPage.html", {"result": result})
 
         elif 'history' in request.POST:
             if number > 0:
-                data = operations.objects.all()[:number]
+                data = Operations.objects.all()[:number]
                 print(data[0].type)
             else:
-                data = operations.objects.all()
+                data = Operations.objects.all()
 
             return render(request, "inputPage.html", {"data": data})
 
